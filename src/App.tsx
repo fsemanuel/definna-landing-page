@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from './components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
+import { Bot, Zap, MessageSquare, Smartphone, TrendingUp, Activity, BarChart3 } from 'lucide-react';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,32 +17,32 @@ function App() {
 
   const features = [
     {
-      icon: '🤖',
+      icon: <Bot className="h-8 w-8" />,
       title: 'Agentes de IA Personalizados',
       description: 'Crie e configure agentes inteligentes com prompts customizados'
     },
     {
-      icon: '🔗',
+      icon: <Zap className="h-8 w-8" />,
       title: 'Múltiplos Provedores',
       description: 'Integre com OpenAI, Google AI, Claude e outros provedores LLM'
     },
     {
-      icon: '💬',
+      icon: <MessageSquare className="h-8 w-8" />,
       title: 'Interface Conversacional',
       description: 'Chat em tempo real com histórico e suporte multimodal'
     },
     {
-      icon: '📱',
+      icon: <Smartphone className="h-8 w-8" />,
       title: 'Integração WhatsApp',
       description: 'Conecte seus agentes diretamente ao WhatsApp Business'
     }
   ];
 
   const stats = [
-    { number: '10K+', label: 'Agentes Criados' },
-    { number: '50M+', label: 'Mensagens Processadas' },
-    { number: '99.9%', label: 'Uptime' },
-    { number: '24/7', label: 'Suporte' }
+    { number: '10K+', label: 'Agentes Criados', icon: <Bot className="h-5 w-5" /> },
+    { number: '50M+', label: 'Mensagens Processadas', icon: <MessageSquare className="h-5 w-5" /> },
+    { number: '99.9%', label: 'Uptime', icon: <Activity className="h-5 w-5" /> },
+    { number: '24/7', label: 'Suporte', icon: <Zap className="h-5 w-5" /> }
   ];
 
   return (
@@ -48,7 +51,7 @@ function App() {
       <header className="fixed top-0 w-full glass border-b border-border z-50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-brand-400 to-brand-500 rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">AI</span>
             </div>
             <span className="text-foreground font-semibold text-xl">Platform</span>
@@ -58,9 +61,9 @@ function App() {
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
             <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
           </div>
-          <button className="btn-brand hover:glow-green transition-all transform hover:scale-105">
+          <Button variant="brand" className="transform hover:scale-105">
             Get Started
-          </button>
+          </Button>
         </nav>
       </header>
 
@@ -80,12 +83,12 @@ function App() {
               Integre com múltiplos provedores LLM e lance em minutos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="btn-brand px-8 py-4 text-lg font-semibold glow-green transform hover:scale-105 shadow-2xl">
+              <Button variant="gradient-brand" size="lg" className="transform hover:scale-105 shadow-2xl">
                 Começar Gratuitamente
-              </button>
-              <button className="glass border-border text-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-muted transition-all">
+              </Button>
+              <Button variant="glass-brand" size="lg">
                 Ver Demo
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -96,10 +99,15 @@ function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>
+              <Card key={index} variant="glass" className="text-center p-6 hover:glow-green">
+                <CardContent className="p-0">
+                  <div className="flex items-center justify-center mb-3 text-brand-500">
+                    {stat.icon}
+                  </div>
+                  <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stat.number}</div>
+                  <div className="text-muted-foreground text-sm">{stat.label}</div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -119,22 +127,25 @@ function App() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div 
-                key={index} 
-                className={`glass rounded-xl p-6 transition-all duration-300 hover:bg-muted/50 hover:border-brand-500/20 transform hover:scale-105 ${
-                  activeFeature === index ? 'ring-2 ring-brand-500/50 glow-green' : ''
+              <Card
+                key={index}
+                variant={activeFeature === index ? "brand" : "glass"}
+                className={`p-6 transition-all duration-300 hover:scale-105 transform ${
+                  activeFeature === index ? 'ring-2 ring-brand-500/50' : ''
                 }`}
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </div>
+                <CardContent className="p-0">
+                  <div className="text-brand-500 mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
+                  <p className="text-muted-foreground">{feature.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Detailed Features */}
+      {/* Dashboard Preview */}
       <section className="py-20 px-6 bg-muted/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -147,49 +158,45 @@ function App() {
                 Monitore performance, analise métricas e configure integrações com facilidade.
               </p>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
-                    <span className="text-primary-foreground text-sm">✓</span>
+                {['Analytics em tempo real', 'Gerenciamento de custos', 'Configuração visual'].map((item, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                      <span className="text-primary-foreground text-sm">✓</span>
+                    </div>
+                    <span className="text-muted-foreground">{item}</span>
                   </div>
-                  <span className="text-muted-foreground">Analytics em tempo real</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
-                    <span className="text-primary-foreground text-sm">✓</span>
-                  </div>
-                  <span className="text-muted-foreground">Gerenciamento de custos</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
-                    <span className="text-primary-foreground text-sm">✓</span>
-                  </div>
-                  <span className="text-muted-foreground">Configuração visual</span>
-                </div>
+                ))}
               </div>
             </div>
-            <div className="glass rounded-2xl p-8 border-brand-500/20 glow-green">
-              <div className="bg-card rounded-lg p-4 mb-4">
-                <div className="flex items-center space-x-2 mb-2">
-                  <div className="w-3 h-3 bg-destructive rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-brand-500 rounded-full"></div>
+            
+            <Card variant="glass-brand" className="p-8">
+              <CardContent className="p-0">
+                <div className="bg-card rounded-lg p-4 mb-4">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-3 h-3 bg-destructive rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full"></div>
+                  </div>
+                  <div className="text-foreground font-mono text-sm">
+                    Dashboard Overview
+                  </div>
                 </div>
-                <div className="text-foreground font-mono text-sm">
-                  Dashboard Overview
+                <div className="space-y-3">
+                  <div className="bg-brand-500/20 rounded-lg p-3 flex items-center space-x-2">
+                    <Bot className="h-5 w-5 text-brand-500" />
+                    <div className="text-foreground text-sm">Total Agents: 12</div>
+                  </div>
+                  <div className="bg-brand-500/20 rounded-lg p-3 flex items-center space-x-2">
+                    <Activity className="h-5 w-5 text-brand-500" />
+                    <div className="text-foreground text-sm">Active: 8</div>
+                  </div>
+                  <div className="bg-brand-500/20 rounded-lg p-3 flex items-center space-x-2">
+                    <BarChart3 className="h-5 w-5 text-brand-500" />
+                    <div className="text-foreground text-sm">Requests: 2,595</div>
+                  </div>
                 </div>
-              </div>
-              <div className="space-y-3">
-                <div className="bg-brand-500/20 rounded-lg p-3">
-                  <div className="text-foreground text-sm">🤖 Total Agents: 12</div>
-                </div>
-                <div className="bg-brand-500/20 rounded-lg p-3">
-                  <div className="text-foreground text-sm">✅ Active: 8</div>
-                </div>
-                <div className="bg-brand-500/20 rounded-lg p-3">
-                  <div className="text-foreground text-sm">📊 Requests: 2,595</div>
-                </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -207,93 +214,69 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Free Plan */}
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Starter</h3>
-              <div className="text-4xl font-bold text-foreground mb-6">
-                Grátis
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">Até 3 agentes</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">1.000 mensagens/mês</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">Suporte básico</span>
-                </li>
-              </ul>
-              <button className="w-full glass border-border text-foreground py-3 rounded-lg hover:bg-muted transition-all">
-                Começar Grátis
-              </button>
-            </div>
+            {/* Starter Plan */}
+            <Card variant="glass" className="p-8">
+              <CardHeader>
+                <CardTitle className="text-2xl">Starter</CardTitle>
+                <div className="text-4xl font-bold text-foreground">Grátis</div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {['Até 3 agentes', '1.000 mensagens/mês', 'Suporte básico'].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <span className="text-brand-500">✓</span>
+                    <span className="text-muted-foreground">{feature}</span>
+                  </div>
+                ))}
+                <Button variant="glass-brand" className="w-full mt-6">
+                  Começar Grátis
+                </Button>
+              </CardContent>
+            </Card>
 
-            {/* Pro Plan */}
-            <div className="glass rounded-2xl p-8 relative border-2 border-brand-500/50 glow-green">
+            {/* Professional Plan */}
+            <Card variant="glass-brand" className="p-8 relative border-2 border-brand-500/50">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <span className="bg-gradient-to-r from-brand-500 to-brand-600 text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                   Popular
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Professional</h3>
-              <div className="text-4xl font-bold text-foreground mb-6">
-                $49<span className="text-lg text-muted-foreground">/mês</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">Agentes ilimitados</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">50.000 mensagens/mês</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">Integração WhatsApp</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">Analytics avançados</span>
-                </li>
-              </ul>
-              <button className="w-full btn-brand py-3 rounded-lg glow-green transition-all">
-                Começar Agora
-              </button>
-            </div>
+              <CardHeader>
+                <CardTitle className="text-2xl">Professional</CardTitle>
+                <div className="text-4xl font-bold text-foreground">
+                  $49<span className="text-lg text-muted-foreground">/mês</span>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {['Agentes ilimitados', '50.000 mensagens/mês', 'Integração WhatsApp', 'Analytics avançados'].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <span className="text-brand-500">✓</span>
+                    <span className="text-muted-foreground">{feature}</span>
+                  </div>
+                ))}
+                <Button variant="gradient-brand" className="w-full mt-6">
+                  Começar Agora
+                </Button>
+              </CardContent>
+            </Card>
 
             {/* Enterprise Plan */}
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Enterprise</h3>
-              <div className="text-4xl font-bold text-foreground mb-6">
-                Custom
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">Recursos personalizados</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">Volume ilimitado</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">Suporte dedicado</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-brand-500">✓</span>
-                  <span className="text-muted-foreground">SLA personalizado</span>
-                </li>
-              </ul>
-              <button className="w-full glass border-border text-foreground py-3 rounded-lg hover:bg-muted transition-all">
-                Falar com Vendas
-              </button>
-            </div>
+            <Card variant="glass" className="p-8">
+              <CardHeader>
+                <CardTitle className="text-2xl">Enterprise</CardTitle>
+                <div className="text-4xl font-bold text-foreground">Custom</div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {['Recursos personalizados', 'Volume ilimitado', 'Suporte dedicado', 'SLA personalizado'].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <span className="text-brand-500">✓</span>
+                    <span className="text-muted-foreground">{feature}</span>
+                  </div>
+                ))}
+                <Button variant="glass-brand" className="w-full mt-6">
+                  Falar com Vendas
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -308,12 +291,12 @@ function App() {
             Junte-se a milhares de empresas que já transformaram seu atendimento com nossos agentes de IA
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-brand px-8 py-4 text-lg font-semibold glow-green transform hover:scale-105 shadow-2xl">
+            <Button variant="gradient-brand" size="lg" className="transform hover:scale-105 shadow-2xl">
               Começar Gratuitamente
-            </button>
-            <button className="glass border-border text-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-muted transition-all">
+            </Button>
+            <Button variant="glass-brand" size="lg">
               Agendar Demo
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -324,7 +307,7 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-brand-500 to-brand-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-brand-400 to-brand-500 rounded-lg flex items-center justify-center">
                   <span className="text-primary-foreground font-bold text-sm">AI</span>
                 </div>
                 <span className="text-foreground font-semibold text-xl">Platform</span>
