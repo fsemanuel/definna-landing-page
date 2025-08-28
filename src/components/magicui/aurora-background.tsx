@@ -1,11 +1,10 @@
 "use client";
-import React from "react";
 
 export const AuroraBackground = () => {
   return (
     <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
       {/* Base gradient background */}
-      <div 
+      <div
         className="absolute inset-0 opacity-40"
         style={{
           background: `
@@ -15,9 +14,9 @@ export const AuroraBackground = () => {
           `
         }}
       />
-      
+
       {/* Moving aurora effect */}
-      <div 
+      <div
         className="absolute inset-0 opacity-30 animate-aurora"
         style={{
           background: `
@@ -32,9 +31,9 @@ export const AuroraBackground = () => {
           backgroundSize: '200% 100%',
         }}
       />
-      
+
       {/* Additional glow effects */}
-      <div 
+      <div
         className="absolute inset-0 opacity-20"
         style={{
           background: `
