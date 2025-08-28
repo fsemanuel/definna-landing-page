@@ -3,6 +3,11 @@ import { Button } from './components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
 import { Bot, Zap, MessageSquare, Smartphone, Activity, BarChart3 } from 'lucide-react';
 import Logo from './components/icons/logo';
+import NumberTicker from './components/magicui/number-ticker';
+import TypingAnimation from './components/magicui/typing-animation';
+import PulsatingButton from './components/magicui/pulsating-button';
+import { DotPattern } from './components/magicui/dot-pattern';
+import { cn } from './lib/utils';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,14 +45,22 @@ function App() {
   ];
 
   const stats = [
-    { number: '10K+', label: 'Agentes Criados', icon: <Bot className="h-5 w-5" /> },
-    { number: '50M+', label: 'Mensagens Processadas', icon: <MessageSquare className="h-5 w-5" /> },
-    { number: '99.9%', label: 'Uptime', icon: <Activity className="h-5 w-5" /> },
-    { number: '24/7', label: 'Suporte', icon: <Zap className="h-5 w-5" /> }
+    { number: 10000, suffix: '+', label: 'Agentes Criados', icon: <Bot className="h-5 w-5" /> },
+    { number: 50000000, suffix: '+', label: 'Mensagens Processadas', icon: <MessageSquare className="h-5 w-5" /> },
+    { number: 99.9, suffix: '%', label: 'Uptime', icon: <Activity className="h-5 w-5" /> },
+    { number: 24, suffix: '/7', label: 'Suporte', icon: <Zap className="h-5 w-5" /> }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Background Pattern */}
+      <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
+          "opacity-30"
+        )}
+      />
+      
       {/* Header */}
       <header className="fixed top-0 w-full glass border-b border-border z-50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -55,37 +68,35 @@ function App() {
             <Logo />
           </div>
           <div className="hidden md:flex space-x-8">
-            <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
-            <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
+            <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Recursos</a>
+            <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Preços</a>
+            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">Sobre</a>
           </div>
-          <Button variant="brand" className="transform hover:scale-105">
-            Get Started
-          </Button>
+          <PulsatingButton className="transform hover:scale-105">
+            Começar Agora
+          </PulsatingButton>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-32 pb-20 px-6 relative">
         <div className="max-w-7xl mx-auto text-center">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-              Construa Agentes de IA
-              <br />
-              <span className="bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
-                Sem Código
-              </span>
-            </h1>
+            <TypingAnimation 
+              text="Construa Agentes de IA Sem Código"
+              className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent"
+              duration={150}
+            />
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
               A plataforma mais avançada para criar, gerenciar e implementar agentes de inteligência artificial.
               Integre com múltiplos provedores LLM e lance em minutos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="gradient-brand" size="lg" className="transform hover:scale-105 shadow-2xl">
+              <PulsatingButton className="px-8 py-4 text-lg font-semibold">
                 Começar Gratuitamente
-              </Button>
+              </PulsatingButton>
               <Button variant="glass-brand" size="lg">
-                Ver Demo
+                Ver Demonstração
               </Button>
             </div>
           </div>
@@ -93,7 +104,7 @@ function App() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 border-y border-border">
+      <section className="py-20 border-y border-border relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -102,7 +113,14 @@ function App() {
                   <div className="flex items-center justify-center mb-3 text-brand-500">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stat.number}</div>
+                  <div className="text-3xl md:text-4xl font-bold text-foreground mb-2 flex justify-center items-center">
+                    <NumberTicker 
+                      value={stat.number}
+                      className="text-3xl md:text-4xl font-bold text-foreground"
+                      decimalPlaces={stat.number === 99.9 ? 1 : 0}
+                    />
+                    <span className="ml-1">{stat.suffix}</span>
+                  </div>
                   <div className="text-muted-foreground text-sm">{stat.label}</div>
                 </CardContent>
               </Card>
@@ -112,7 +130,7 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-6">
+      <section id="features" className="py-20 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -143,19 +161,19 @@ function App() {
       </section>
 
       {/* Dashboard Preview */}
-      <section className="py-20 px-6 bg-muted/20">
+      <section className="py-20 px-6 bg-muted/20 relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Dashboard Intuitivo
+                Painel Intuitivo
               </h3>
               <p className="text-lg text-muted-foreground mb-8">
                 Gerencie todos os seus agentes de IA em um painel centralizado.
                 Monitore performance, analise métricas e configure integrações com facilidade.
               </p>
               <div className="space-y-4">
-                {['Analytics em tempo real', 'Gerenciamento de custos', 'Configuração visual'].map((item, index) => (
+                {['Análises em tempo real', 'Gerenciamento de custos', 'Configuração visual'].map((item, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                       <span className="text-primary-foreground text-sm">✓</span>
@@ -175,21 +193,27 @@ function App() {
                     <div className="w-3 h-3 bg-brand-500 rounded-full"></div>
                   </div>
                   <div className="text-foreground font-mono text-sm">
-                    Dashboard Overview
+                    Visão Geral do Painel
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="bg-brand-500/20 rounded-lg p-3 flex items-center space-x-2">
                     <Bot className="h-5 w-5 text-brand-500" />
-                    <div className="text-foreground text-sm">Total Agents: 12</div>
+                    <div className="text-foreground text-sm flex items-center">
+                      Total de Agentes: <NumberTicker value={12} className="ml-1 text-foreground" />
+                    </div>
                   </div>
                   <div className="bg-brand-500/20 rounded-lg p-3 flex items-center space-x-2">
                     <Activity className="h-5 w-5 text-brand-500" />
-                    <div className="text-foreground text-sm">Active: 8</div>
+                    <div className="text-foreground text-sm flex items-center">
+                      Ativos: <NumberTicker value={8} className="ml-1 text-foreground" />
+                    </div>
                   </div>
                   <div className="bg-brand-500/20 rounded-lg p-3 flex items-center space-x-2">
                     <BarChart3 className="h-5 w-5 text-brand-500" />
-                    <div className="text-foreground text-sm">Requests: 2,595</div>
+                    <div className="text-foreground text-sm flex items-center">
+                      Solicitações: <NumberTicker value={2595} className="ml-1 text-foreground" />
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -199,7 +223,7 @@ function App() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-6">
+      <section id="pricing" className="py-20 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -214,7 +238,7 @@ function App() {
             {/* Starter Plan */}
             <Card variant="glass" className="p-8">
               <CardHeader>
-                <CardTitle className="text-2xl">Starter</CardTitle>
+                <CardTitle className="text-2xl">Iniciante</CardTitle>
                 <div className="text-4xl font-bold text-foreground">Grátis</div>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -238,29 +262,29 @@ function App() {
                 </span>
               </div>
               <CardHeader>
-                <CardTitle className="text-2xl">Professional</CardTitle>
+                <CardTitle className="text-2xl">Profissional</CardTitle>
                 <div className="text-4xl font-bold text-foreground">
-                  $49<span className="text-lg text-muted-foreground">/mês</span>
+                  R$249<span className="text-lg text-muted-foreground">/mês</span>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                {['Agentes ilimitados', '50.000 mensagens/mês', 'Integração WhatsApp', 'Analytics avançados'].map((feature, index) => (
+                {['Agentes ilimitados', '50.000 mensagens/mês', 'Integração WhatsApp', 'Análises avançadas'].map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <span className="text-brand-500">✓</span>
                     <span className="text-muted-foreground">{feature}</span>
                   </div>
                 ))}
-                <Button variant="gradient-brand" className="w-full mt-6">
+                <PulsatingButton className="w-full mt-6 py-3">
                   Começar Agora
-                </Button>
+                </PulsatingButton>
               </CardContent>
             </Card>
 
             {/* Enterprise Plan */}
             <Card variant="glass" className="p-8">
               <CardHeader>
-                <CardTitle className="text-2xl">Enterprise</CardTitle>
-                <div className="text-4xl font-bold text-foreground">Custom</div>
+                <CardTitle className="text-2xl">Empresarial</CardTitle>
+                <div className="text-4xl font-bold text-foreground">Personalizado</div>
               </CardHeader>
               <CardContent className="space-y-4">
                 {['Recursos personalizados', 'Volume ilimitado', 'Suporte dedicado', 'SLA personalizado'].map((feature, index) => (
@@ -279,7 +303,7 @@ function App() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-brand-500/10 to-brand-600/10 border-t border-border">
+      <section className="py-20 px-6 bg-gradient-to-r from-brand-500/10 to-brand-600/10 border-t border-border relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Pronto para Revolucionar seu Negócio?
@@ -288,11 +312,11 @@ function App() {
             Junte-se a milhares de empresas que já transformaram seu atendimento com nossos agentes de IA
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="gradient-brand" size="lg" className="transform hover:scale-105 shadow-2xl">
+            <PulsatingButton className="px-8 py-4 text-lg font-semibold shadow-2xl">
               Começar Gratuitamente
-            </Button>
+            </PulsatingButton>
             <Button variant="glass-brand" size="lg">
-              Agendar Demo
+              Agendar Demonstração
             </Button>
           </div>
         </div>
@@ -313,7 +337,7 @@ function App() {
             <div>
               <h4 className="text-foreground font-semibold mb-4">Produto</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Features</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Recursos</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Integrações</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">API</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Segurança</a></li>
@@ -340,7 +364,7 @@ function App() {
           </div>
           <div className="border-t border-border mt-12 pt-8 text-center">
             <p className="text-muted-foreground">
-              © 2024 AI Platform. Todos os direitos reservados.
+              © 2024 Plataforma de IA. Todos os direitos reservados.
             </p>
           </div>
         </div>
