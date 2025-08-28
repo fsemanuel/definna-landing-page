@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
-import { Bot, Zap, MessageSquare, Smartphone, TrendingUp, Activity, BarChart3 } from 'lucide-react';
+import { Bot, Zap, MessageSquare, Smartphone, Activity, BarChart3 } from 'lucide-react';
+import Logo from './components/icons/logo';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -51,10 +52,7 @@ function App() {
       <header className="fixed top-0 w-full glass border-b border-border z-50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-brand-400 to-brand-500 rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">AI</span>
-            </div>
-            <span className="text-foreground font-semibold text-xl">Platform</span>
+            <Logo />
           </div>
           <div className="hidden md:flex space-x-8">
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
@@ -79,7 +77,7 @@ function App() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-              A plataforma mais avançada para criar, gerenciar e implementar agentes de inteligência artificial. 
+              A plataforma mais avançada para criar, gerenciar e implementar agentes de inteligência artificial.
               Integre com múltiplos provedores LLM e lance em minutos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -130,9 +128,8 @@ function App() {
               <Card
                 key={index}
                 variant={activeFeature === index ? "brand" : "glass"}
-                className={`p-6 transition-all duration-300 hover:scale-105 transform ${
-                  activeFeature === index ? 'ring-2 ring-brand-500/50' : ''
-                }`}
+                className={`p-6 transition-all duration-300 hover:scale-105 transform ${activeFeature === index ? 'ring-2 ring-brand-500/50' : ''
+                  }`}
               >
                 <CardContent className="p-0">
                   <div className="text-brand-500 mb-4">{feature.icon}</div>
@@ -154,7 +151,7 @@ function App() {
                 Dashboard Intuitivo
               </h3>
               <p className="text-lg text-muted-foreground mb-8">
-                Gerencie todos os seus agentes de IA em um painel centralizado. 
+                Gerencie todos os seus agentes de IA em um painel centralizado.
                 Monitore performance, analise métricas e configure integrações com facilidade.
               </p>
               <div className="space-y-4">
@@ -168,7 +165,7 @@ function App() {
                 ))}
               </div>
             </div>
-            
+
             <Card variant="glass-brand" className="p-8">
               <CardContent className="p-0">
                 <div className="bg-card rounded-lg p-4 mb-4">
@@ -307,10 +304,7 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-brand-400 to-brand-500 rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">AI</span>
-                </div>
-                <span className="text-foreground font-semibold text-xl">Platform</span>
+                <Logo />
               </div>
               <p className="text-muted-foreground">
                 A plataforma mais avançada para criar agentes de IA sem código.
