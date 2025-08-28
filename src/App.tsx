@@ -51,12 +51,12 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Aurora Background - Always visible */}
-      <AuroraBackground showRadialGradient={true} />
+    <div className="min-h-screen bg-background relative">
+      {/* Aurora Background - Always visible and fixed */}
+      <AuroraBackground />
       
       {/* Header */}
-      <header className="fixed top-0 w-full glass border-b border-border z-50">
+      <header className="fixed top-0 w-full glass border-b border-border z-50 relative">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <Logo />
