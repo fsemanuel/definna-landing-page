@@ -1,57 +1,56 @@
 "use client";
-import { cn } from "@/lib/utils";
-import React, { ReactNode } from "react";
+import React from "react";
 
-interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
-  children?: ReactNode;
-  showRadialGradient?: boolean;
-}
-
-export const AuroraBackground = ({
-  className,
-  children,
-  showRadialGradient = true,
-  ...props
-}: AuroraBackgroundProps) => {
+export const AuroraBackground = () => {
   return (
-    <>
-      {/* Simple animated background */}
-      <div
-        className="fixed inset-0 w-full h-full z-0 opacity-20"
+    <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
+      {/* Base gradient background */}
+      <div 
+        className="absolute inset-0 opacity-40"
         style={{
           background: `
-            radial-gradient(circle at 20% 50%, #3ECF8E 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, #60A5FA 0%, transparent 50%),
-            radial-gradient(circle at 40% 80%, #A78BFA 0%, transparent 50%)
-          `,
-          animation: 'aurora-move 20s ease-in-out infinite alternate',
+            radial-gradient(ellipse 80% 80% at 50% -20%, rgba(62, 207, 142, 0.3), transparent),
+            radial-gradient(ellipse 80% 80% at 80% 60%, rgba(96, 165, 250, 0.2), transparent),
+            radial-gradient(ellipse 80% 80% at 20% 80%, rgba(167, 139, 250, 0.2), transparent)
+          `
         }}
       />
       
-      {/* Aurora effect */}
-      <div
-        className={cn(
-          "fixed inset-0 w-full h-full z-0",
-          className,
-        )}
-        {...props}
-      >
-        <div 
-          className="absolute inset-0 animate-aurora opacity-30"
-          style={{
-            background: `
-              linear-gradient(100deg, 
-                transparent 40%, 
-                rgba(62, 207, 142, 0.6) 50%, 
-                rgba(96, 165, 250, 0.4) 60%,
-                transparent 70%
-              )
-            `,
-            backgroundSize: '200% 100%',
-          }}
-        />
-        {children}
-      </div>
-    </>
+      {/* Moving aurora effect */}
+      <div 
+        className="absolute inset-0 opacity-30 animate-aurora"
+        style={{
+          background: `
+            linear-gradient(100deg, 
+              transparent 20%,
+              rgba(62, 207, 142, 0.4) 40%,
+              rgba(96, 165, 250, 0.3) 50%,
+              rgba(167, 139, 250, 0.3) 60%,
+              transparent 80%
+            )
+          `,
+          backgroundSize: '200% 100%',
+        }}
+      />
+      
+      {/* Additional glow effects */}
+      <div 
+        className="absolute inset-0 opacity-20"
+        style={{
+          background: `
+            conic-gradient(from 0deg at 50% 50%, 
+              transparent 0deg,
+              rgba(62, 207, 142, 0.5) 60deg,
+              transparent 120deg,
+              rgba(96, 165, 250, 0.3) 180deg,
+              transparent 240deg,
+              rgba(167, 139, 250, 0.3) 300deg,
+              transparent 360deg
+            )
+          `,
+          animation: 'spin 30s linear infinite',
+        }}
+      />
+    </div>
   );
 };
