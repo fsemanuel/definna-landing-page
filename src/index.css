@@ -68,7 +68,7 @@
   }
 }
 
-/* Aurora Animation */
+/* Aurora Animations */
 @layer utilities {
   @keyframes aurora {
     from {
@@ -79,8 +79,24 @@
     }
   }
   
+  @keyframes aurora-move {
+    0%, 100% {
+      transform: translateX(0px) translateY(0px) scale(1);
+    }
+    33% {
+      transform: translateX(-30px) translateY(-20px) scale(1.1);
+    }
+    66% {
+      transform: translateX(20px) translateY(-30px) scale(0.9);
+    }
+  }
+  
   .animate-aurora {
     animation: aurora 60s linear infinite;
+  }
+  
+  .animate-aurora-move {
+    animation: aurora-move 20s ease-in-out infinite alternate;
   }
 }
 
