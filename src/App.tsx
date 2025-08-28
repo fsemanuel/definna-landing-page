@@ -5,8 +5,8 @@ import { Bot, Zap, MessageSquare, Smartphone, Activity, BarChart3 } from 'lucide
 import Logo from './components/icons/logo';
 import NumberTicker from './components/magicui/number-ticker';
 import TypingAnimation from './components/magicui/typing-animation';
-import PulsatingButton from './components/magicui/pulsating-button';
-import { BackgroundGradientAnimation } from './components/magicui/background-gradient-animation';
+import { DotPattern } from './components/magicui/dot-pattern';
+import { cn } from './lib/utils';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -51,22 +51,17 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Background Gradient Animation - Always visible and fixed */}
-      <BackgroundGradientAnimation 
-        gradientBackgroundStart="rgb(0, 0, 0)"
-        gradientBackgroundEnd="rgb(10, 10, 10)"
-        firstColor="62, 207, 142"
-        secondColor="62, 207, 142"
-        thirdColor="62, 207, 142"
-        fourthColor="62, 207, 142"
-        fifthColor="62, 207, 142"
-        pointerColor="62, 207, 142"
-        interactive={true}
+    <div className="min-h-screen bg-background">
+      {/* Background Pattern - Always visible */}
+      <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+          "opacity-20"
+        )}
       />
       
       {/* Header */}
-      <header className="fixed top-0 w-full glass border-b border-border z-50 relative">
+      <header className="fixed top-0 w-full glass border-b border-border z-50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <Logo />
@@ -76,9 +71,9 @@ function App() {
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Preços</a>
             <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">Sobre</a>
           </div>
-          <PulsatingButton className="transform hover:scale-105">
+          <Button variant="brand" className="transform hover:scale-105">
             Começar Agora
-          </PulsatingButton>
+          </Button>
         </nav>
       </header>
 
@@ -87,7 +82,8 @@ function App() {
         <div className="max-w-7xl mx-auto text-center">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <TypingAnimation 
-              text="Construa Agentes de IA Sem Código"
+              text="Construa Agentes de IA
+Sem Código"
               className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent"
               duration={150}
             />
@@ -96,9 +92,9 @@ function App() {
               Integre com múltiplos provedores LLM e lance em minutos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <PulsatingButton className="px-8 py-4 text-lg font-semibold">
+              <Button variant="gradient-brand" size="lg" className="transform hover:scale-105 shadow-2xl">
                 Começar Gratuitamente
-              </PulsatingButton>
+              </Button>
               <Button variant="glass-brand" size="lg">
                 Ver Demonstração
               </Button>
@@ -278,9 +274,9 @@ function App() {
                     <span className="text-muted-foreground">{feature}</span>
                   </div>
                 ))}
-                <PulsatingButton className="w-full mt-6 py-3">
+                <Button variant="gradient-brand" className="w-full mt-6">
                   Começar Agora
-                </PulsatingButton>
+                </Button>
               </CardContent>
             </Card>
 
@@ -316,9 +312,9 @@ function App() {
             Junte-se a milhares de empresas que já transformaram seu atendimento com nossos agentes de IA
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PulsatingButton className="px-8 py-4 text-lg font-semibold shadow-2xl">
+            <Button variant="gradient-brand" size="lg" className="transform hover:scale-105 shadow-2xl">
               Começar Gratuitamente
-            </PulsatingButton>
+            </Button>
             <Button variant="glass-brand" size="lg">
               Agendar Demonstração
             </Button>
