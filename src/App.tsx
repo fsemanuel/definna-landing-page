@@ -6,8 +6,7 @@ import Logo from './components/icons/logo';
 import NumberTicker from './components/magicui/number-ticker';
 import TypingAnimation from './components/magicui/typing-animation';
 import PulsatingButton from './components/magicui/pulsating-button';
-import { DotPattern } from './components/magicui/dot-pattern';
-import { cn } from './lib/utils';
+import { AuroraBackground } from './components/magicui/aurora-background';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,13 +52,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Fixed Background Pattern - Always visible */}
-      <DotPattern
-        className={cn(
-          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-          "opacity-20"
-        )}
-      />
+      {/* Aurora Background - Always visible */}
+      <AuroraBackground showRadialGradient={true} />
       
       {/* Header */}
       <header className="fixed top-0 w-full glass border-b border-border z-50">
