@@ -6,7 +6,7 @@ import Logo from './components/icons/logo';
 import NumberTicker from './components/magicui/number-ticker';
 import TypingAnimation from './components/magicui/typing-animation';
 import PulsatingButton from './components/magicui/pulsating-button';
-import { AuroraBackground } from './components/magicui/aurora-background';
+import { BackgroundGradientAnimation } from './components/magicui/background-gradient-animation';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,8 +52,18 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Aurora Background - Always visible and fixed */}
-      <AuroraBackground />
+      {/* Background Gradient Animation - Always visible and fixed */}
+      <BackgroundGradientAnimation 
+        gradientBackgroundStart="rgb(0, 0, 0)"
+        gradientBackgroundEnd="rgb(10, 10, 10)"
+        firstColor="62, 207, 142"
+        secondColor="62, 207, 142"
+        thirdColor="62, 207, 142"
+        fourthColor="62, 207, 142"
+        fifthColor="62, 207, 142"
+        pointerColor="62, 207, 142"
+        interactive={true}
+      />
       
       {/* Header */}
       <header className="fixed top-0 w-full glass border-b border-border z-50 relative">
