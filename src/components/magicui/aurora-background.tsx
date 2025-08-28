@@ -26,22 +26,22 @@ export const AuroraBackground = ({
         style={
           {
             "--aurora":
-              "repeating-linear-gradient(100deg,hsl(var(--brand))_10%,hsl(var(--brand)/0.8)_15%,hsl(var(--brand)/0.6)_20%,hsl(var(--brand)/0.4)_25%,hsl(var(--brand))_30%)",
+              "repeating-linear-gradient(100deg,#3ECF8E 10%,rgba(62,207,142,0.8) 15%,rgba(62,207,142,0.6) 20%,rgba(62,207,142,0.4) 25%,#3ECF8E 30%)",
             "--dark-gradient":
-              "repeating-linear-gradient(100deg,hsl(var(--background))_0%,hsl(var(--background))_7%,transparent_10%,transparent_12%,hsl(var(--background))_16%)",
+              "repeating-linear-gradient(100deg,#0a0a0a 0%,#0a0a0a 7%,transparent 10%,transparent 12%,#0a0a0a 16%)",
             "--white-gradient":
-              "repeating-linear-gradient(100deg,hsl(var(--background))_0%,hsl(var(--background))_7%,transparent_10%,transparent_12%,hsl(var(--background))_16%)",
+              "repeating-linear-gradient(100deg,#0a0a0a 0%,#0a0a0a 7%,transparent 10%,transparent 12%,#0a0a0a 16%)",
           } as React.CSSProperties
         }
       >
         <div
           className={cn(
-            `after:animate-aurora pointer-events-none absolute -inset-[10px] opacity-30 blur-[10px] invert-0 filter will-change-transform`,
+            `after:animate-aurora pointer-events-none absolute -inset-[10px] opacity-50 blur-[10px] invert-0 filter will-change-transform`,
+            `bg-gradient-to-r from-brand-500/20 via-brand-400/10 to-brand-500/20`,
             `[background-image:var(--white-gradient),var(--aurora)] [background-size:300%,_200%] [background-position:50%_50%,50%_50%]`,
-            `after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] after:[background-size:200%,_100%] after:[background-attachment:fixed] after:mix-blend-difference after:content-[""]`,
-            `dark:[background-image:var(--dark-gradient),var(--aurora)] dark:invert-0 after:dark:[background-image:var(--dark-gradient),var(--aurora)]`,
+            `after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] after:[background-size:200%,_100%] after:mix-blend-difference after:content-[""]`,
             showRadialGradient &&
-              `[mask-image:radial-gradient(ellipse_at_50%_50%,black_10%,transparent_70%)]`,
+              `[mask-image:radial-gradient(ellipse_at_50%_50%,black_30%,transparent_90%)]`,
           )}
         ></div>
       </div>
