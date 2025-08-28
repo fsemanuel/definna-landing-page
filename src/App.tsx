@@ -52,12 +52,12 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Background Pattern */}
+    <div className="min-h-screen bg-background">
+      {/* Fixed Background Pattern - Always visible */}
       <DotPattern
         className={cn(
-          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-          "opacity-30"
+          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+          "opacity-20"
         )}
       />
       
@@ -79,7 +79,7 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative">
+      <section className="pt-32 pb-20 px-6 relative z-10">
         <div className="max-w-7xl mx-auto text-center">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <TypingAnimation 
@@ -104,7 +104,7 @@ function App() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 border-y border-border relative">
+      <section className="py-20 border-y border-border relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -130,7 +130,7 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-6 relative">
+      <section id="features" className="py-20 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -161,7 +161,7 @@ function App() {
       </section>
 
       {/* Dashboard Preview */}
-      <section className="py-20 px-6 bg-muted/20 relative">
+      <section className="py-20 px-6 bg-muted/20 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -223,7 +223,7 @@ function App() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-6 relative">
+      <section id="pricing" className="py-20 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -303,7 +303,7 @@ function App() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-brand-500/10 to-brand-600/10 border-t border-border relative">
+      <section className="py-20 px-6 bg-gradient-to-r from-brand-500/10 to-brand-600/10 border-t border-border relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Pronto para Revolucionar seu Negócio?
@@ -323,7 +323,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-border">
+      <footer className="py-12 px-6 border-t border-border relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
