@@ -59,7 +59,7 @@ function App() {
           "opacity-20"
         )}
       />
-      
+
       {/* Header */}
       <header className="fixed top-0 w-full glass border-b border-border z-50">
         <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -80,13 +80,14 @@ function App() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative z-10">
         <div className="max-w-7xl mx-auto text-center">
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <TypingAnimation 
-              text="Construa Agentes de IA
-Sem Código"
-              className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent"
-              duration={150}
-            />
+          <div className={`transition-all duration-1000 w-full flex flex-col justify-center items-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className='w-full max-w-[860px]'>
+              <TypingAnimation
+                text="Construa Agentes de IA Sem Código"
+                className="text-5xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent"
+                duration={150}
+              />
+            </div>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
               A plataforma mais avançada para criar, gerenciar e implementar agentes de inteligência artificial.
               Integre com múltiplos provedores LLM e lance em minutos.
@@ -114,7 +115,7 @@ Sem Código"
                     {stat.icon}
                   </div>
                   <div className="text-3xl md:text-4xl font-bold text-foreground mb-2 flex justify-center items-center">
-                    <NumberTicker 
+                    <NumberTicker
                       value={stat.number}
                       className="text-3xl md:text-4xl font-bold text-foreground"
                       decimalPlaces={stat.number === 99.9 ? 1 : 0}
