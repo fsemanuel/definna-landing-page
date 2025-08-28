@@ -340,32 +340,26 @@ function App() {
               <ul className="space-y-2">
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Recursos</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Integrações</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">API</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Segurança</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-foreground font-semibold mb-4">Empresa</h4>
               <ul className="space-y-2">
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Sobre</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Carreiras</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Contato</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-foreground font-semibold mb-4">Suporte</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Documentação</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Tutoriais</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Status</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Ajuda</a></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-border mt-12 pt-8 text-center">
             <p className="text-muted-foreground">
-              © 2024 Plataforma de IA. Todos os direitos reservados.
+              © 2025 Plataforma de IA. Todos os direitos reservados.
             </p>
           </div>
         </div>
