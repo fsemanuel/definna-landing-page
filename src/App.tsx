@@ -7,8 +7,13 @@ import NumberTicker from './components/magicui/number-ticker';
 import TypingAnimation from './components/magicui/typing-animation';
 import { DotPattern } from './components/magicui/dot-pattern';
 import { cn } from './lib/utils';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
+
+type PageView = 'home' | 'terms' | 'privacy';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState<PageView>('home');
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
 
@@ -19,6 +24,21 @@ function App() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  // Handle navigation
+  const navigateTo = (page: PageView) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
+  // Render the appropriate page
+  if (currentPage === 'terms') {
+    return <TermsPage onBack={() => navigateTo('home')} />;
+  }
+
+  if (currentPage === 'privacy') {
+    return <PrivacyPage onBack={() => navigateTo('home')} />;
+  }
 
   const features = [
     {
@@ -354,8 +374,22 @@ function App() {
             <div>
               <h4 className="text-foreground font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li><a href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">Termos de Serviços</a></li>
-                <li><a href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">Políticas de Privacidade</a></li>
+                <li>
+                  <button 
+                    onClick={() => navigateTo('terms')} 
+                    className="text-muted-foreground hover:text-foreground transition-colors text-left"
+                  >
+                    Termos de Serviços
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => navigateTo('privacy')} 
+                    className="text-muted-foreground hover:text-foreground transition-colors text-left"
+                  >
+                    Políticas de Privacidade
+                  </button>
+                </li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Suporte</a></li>
               </ul>
             </div>
@@ -365,12 +399,18 @@ function App() {
               © 2025 Definna. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6">
-              <a href="/terms" className="text-sm text-muted-foreground hover:text-brand-500 transition-colors">
+              <button 
+                onClick={() => navigateTo('terms')} 
+                className="text-sm text-muted-foreground hover:text-brand-500 transition-colors"
+              >
                 Termos
-              </a>
-              <a href="/privacy" className="text-sm text-muted-foreground hover:text-brand-500 transition-colors">
+              </button>
+              <button 
+                onClick={() => navigateTo('privacy')} 
+                className="text-sm text-muted-foreground hover:text-brand-500 transition-colors"
+              >
                 Privacidade
-              </a>
+              </button>
             </div>
           </div>
         </div>
