@@ -5,9 +5,17 @@ import { FileText, Shield, ArrowLeft } from 'lucide-react';
 import { DotPattern } from '../components/magicui/dot-pattern';
 import { cn } from '../lib/utils';
 
-export default function TermsPage() {
+interface TermsPageProps {
+  onBack?: () => void;
+}
+
+export default function TermsPage({ onBack }: TermsPageProps) {
   const handleBack = () => {
-    window.history.back();
+    if (onBack) {
+      onBack();
+    } else {
+      window.history.back();
+    }
   };
 
   return (
@@ -255,7 +263,7 @@ export default function TermsPage() {
                 <Button variant="gradient-brand">
                   Falar com Suporte
                 </Button>
-                <Button variant="ghost" onClick={() => window.location.href = '/privacy'}>
+                <Button variant="ghost">
                   Ver Políticas de Privacidade
                 </Button>
               </div>
