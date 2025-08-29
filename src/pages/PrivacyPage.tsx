@@ -56,7 +56,7 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
               Políticas de Privacidade
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Sua privacidade é fundamental para nós. Esta política explica como coletamos, 
+              Sua privacidade é fundamental para nós. Esta política explica como coletamos,
               usamos e protegemos seus dados pessoais. Última atualização em 28 de agosto de 2025.
             </p>
           </div>
@@ -145,7 +145,7 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
                   <li>Comunicações conosco (suporte, feedback)</li>
                   <li>Dados de integração com serviços terceiros</li>
                 </ul>
-                
+
                 <h4 className="text-foreground font-semibold mt-6">1.2 Informações Coletadas Automaticamente</h4>
                 <p>Quando você usa nossos serviços, coletamos automaticamente:</p>
                 <ul className="list-disc pl-6 space-y-2">
@@ -191,7 +191,7 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
                 <div className="bg-brand-500/10 border border-brand-500/20 rounded-lg p-4 mt-6">
                   <h4 className="text-brand-500 font-semibold mb-2">Inteligência Artificial</h4>
                   <p className="text-sm">
-                    Utilizamos dados de conversação de forma agregada e anônima para treinar e melhorar 
+                    Utilizamos dados de conversação de forma agregada e anônima para treinar e melhorar
                     nossos modelos de IA, sempre respeitando sua privacidade e sem identificar usuários individuais.
                   </p>
                 </div>
@@ -212,14 +212,14 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
                   <div className="border-l-4 border-brand-500 pl-4">
                     <h4 className="text-foreground font-semibold">Provedores de Serviços</h4>
                     <p className="text-sm">
-                      Com parceiros confiáveis que nos ajudam a operar nossos serviços 
+                      Com parceiros confiáveis que nos ajudam a operar nossos serviços
                       (processamento de pagamentos, hospedagem, análises).
                     </p>
                   </div>
                   <div className="border-l-4 border-brand-500 pl-4">
                     <h4 className="text-foreground font-semibold">Provedores de IA</h4>
                     <p className="text-sm">
-                      Com provedores de LLM (OpenAI, Google, Anthropic) quando necessário 
+                      Com provedores de LLM (OpenAI, Google, Anthropic) quando necessário
                       para processar suas solicitações aos agentes de IA.
                     </p>
                   </div>
@@ -271,7 +271,7 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
                     <div>
                       <h4 className="text-destructive font-semibold">Importante</h4>
                       <p className="text-sm">
-                        Apesar de todas as precauções, nenhum método de transmissão pela internet é 100% seguro. 
+                        Apesar de todas as precauções, nenhum método de transmissão pela internet é 100% seguro.
                         Notificaremos você sobre qualquer violação de dados conforme exigido por lei.
                       </p>
                     </div>
@@ -350,11 +350,11 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-brand-500/10 border border-brand-500/20 rounded-lg p-4 mt-6">
                   <h4 className="text-brand-500 font-semibold mb-2">Como Exercer Seus Direitos</h4>
                   <p className="text-sm mb-2">
-                    Para exercer qualquer um desses direitos, entre em contato conosco através do e-mail: 
+                    Para exercer qualquer um desses direitos, entre em contato conosco através do e-mail:
                     <strong className="text-foreground"> privacy@definna.ai</strong>
                   </p>
                   <p className="text-xs">
@@ -385,21 +385,21 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
                   <div className="border border-border rounded-lg p-4">
                     <h4 className="text-foreground font-semibold mb-2">Cookies de Performance</h4>
                     <p className="text-sm">
-                      Coletam informações sobre como você usa nossos serviços para nos ajudar a melhorar 
+                      Coletam informações sobre como você usa nossos serviços para nos ajudar a melhorar
                       a performance e corrigir erros.
                     </p>
                   </div>
                   <div className="border border-border rounded-lg p-4">
                     <h4 className="text-foreground font-semibold mb-2">Cookies de Funcionalidade</h4>
                     <p className="text-sm">
-                      Permitem que lembremos de suas preferências e configurações para personalizar 
+                      Permitem que lembremos de suas preferências e configurações para personalizar
                       sua experiência na plataforma.
                     </p>
                   </div>
                 </div>
-                
+
                 <p className="text-sm">
-                  Você pode gerenciar suas preferências de cookies através das configurações do seu navegador 
+                  Você pode gerenciar suas preferências de cookies através das configurações do seu navegador
                   ou através do nosso painel de preferências disponível na plataforma.
                 </p>
               </CardContent>
@@ -413,16 +413,16 @@ export default function PrivacyPage({ onBack }: PrivacyPageProps) {
                 Dúvidas sobre Privacidade?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Nossa equipe de privacidade está disponível para esclarecer qualquer dúvida 
+                Nossa equipe de privacidade está disponível para esclarecer qualquer dúvida
                 sobre como tratamos seus dados pessoais.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="gradient-brand">
                   Contatar Privacidade
                 </Button>
-                <Button variant="ghost">
+                {/* <Button variant="ghost">
                   Ver Termos de Serviços
-                </Button>
+                </Button> */}
               </div>
               <div className="mt-6 pt-6 border-t border-border/20">
                 <p className="text-sm text-muted-foreground">

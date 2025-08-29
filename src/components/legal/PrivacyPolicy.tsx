@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import Logo from '../icons/logo';
 import { Button } from '../ui/button';
-import { ArrowLeft, Shield, Eye, Database, Lock, Users, Globe, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Shield, Eye, Lock, Users } from 'lucide-react';
 
 interface PrivacyPolicyProps {
   onBack?: () => void;
@@ -40,7 +40,7 @@ export default function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
               Políticas de Privacidade
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Sua privacidade é fundamental para nós. Esta política explica como coletamos, 
+              Sua privacidade é fundamental para nós. Esta política explica como coletamos,
               usamos e protegemos seus dados pessoais. Última atualização em 28 de agosto de 2025.
             </p>
           </div>
@@ -116,7 +116,7 @@ export default function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
                 Dúvidas sobre Privacidade?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Nossa equipe de privacidade está disponível para esclarecer qualquer dúvida 
+                Nossa equipe de privacidade está disponível para esclarecer qualquer dúvida
                 sobre como tratamos seus dados pessoais.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -56,7 +56,7 @@ export default function TermsPage({ onBack }: TermsPageProps) {
               Termos de Serviços
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Estes termos regem o uso da nossa plataforma de agentes de IA. 
+              Estes termos regem o uso da nossa plataforma de agentes de IA.
               Última atualização em 28 de agosto de 2025.
             </p>
           </div>
@@ -104,11 +104,11 @@ export default function TermsPage({ onBack }: TermsPageProps) {
               </CardHeader>
               <CardContent className="p-0 space-y-4 text-muted-foreground">
                 <p>
-                  Ao acessar e usar a plataforma Definna ("Serviço"), você concorda em estar vinculado a estes Termos de Serviços ("Termos"). 
+                  Ao acessar e usar a plataforma Definna ("Serviço"), você concorda em estar vinculado a estes Termos de Serviços ("Termos").
                   Se você não concorda com qualquer parte destes termos, não deve usar nossos serviços.
                 </p>
                 <p>
-                  Estes termos constituem um acordo legal entre você ("Usuário") e a Definna ("Empresa", "nós", "nosso"). 
+                  Estes termos constituem um acordo legal entre você ("Usuário") e a Definna ("Empresa", "nós", "nosso").
                   Reservamo-nos o direito de modificar estes termos a qualquer momento, com notificação prévia aos usuários.
                 </p>
               </CardContent>
@@ -123,7 +123,7 @@ export default function TermsPage({ onBack }: TermsPageProps) {
               </CardHeader>
               <CardContent className="p-0 space-y-4 text-muted-foreground">
                 <p>
-                  A Definna oferece uma plataforma para criação, gerenciamento e implementação de agentes de inteligência artificial. 
+                  A Definna oferece uma plataforma para criação, gerenciamento e implementação de agentes de inteligência artificial.
                   Nossos serviços incluem:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
@@ -135,7 +135,7 @@ export default function TermsPage({ onBack }: TermsPageProps) {
                   <li>Suporte técnico e documentação</li>
                 </ul>
                 <p>
-                  Os serviços são fornecidos "como estão" e podem ser modificados, suspensos ou descontinuados a nosso critério, 
+                  Os serviços são fornecidos "como estão" e podem ser modificados, suspensos ou descontinuados a nosso critério,
                   com notificação prévia quando possível.
                 </p>
               </CardContent>
@@ -151,19 +151,19 @@ export default function TermsPage({ onBack }: TermsPageProps) {
               <CardContent className="p-0 space-y-4 text-muted-foreground">
                 <h4 className="text-foreground font-semibold">3.1 Criação de Conta</h4>
                 <p>
-                  Para usar nossos serviços, você deve criar uma conta fornecendo informações precisas e completas. 
+                  Para usar nossos serviços, você deve criar uma conta fornecendo informações precisas e completas.
                   Você é responsável por manter a confidencialidade de suas credenciais de acesso.
                 </p>
-                
+
                 <h4 className="text-foreground font-semibold">3.2 Responsabilidade da Conta</h4>
                 <p>
-                  Você é totalmente responsável por todas as atividades que ocorrem em sua conta. 
+                  Você é totalmente responsável por todas as atividades que ocorrem em sua conta.
                   Deve notificar-nos imediatamente sobre qualquer uso não autorizado de sua conta.
                 </p>
-                
+
                 <h4 className="text-foreground font-semibold">3.3 Suspensão e Encerramento</h4>
                 <p>
-                  Reservamo-nos o direito de suspender ou encerrar sua conta a qualquer momento, 
+                  Reservamo-nos o direito de suspender ou encerrar sua conta a qualquer momento,
                   especialmente em casos de violação destes termos ou atividades suspeitas.
                 </p>
               </CardContent>
@@ -186,14 +186,14 @@ export default function TermsPage({ onBack }: TermsPageProps) {
                   <li>Tentativas de comprometer a segurança da plataforma</li>
                   <li>Uso excessivo que possa prejudicar a performance para outros usuários</li>
                 </ul>
-                
+
                 <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4 mt-6">
                   <div className="flex items-start space-x-2">
                     <Shield className="h-5 w-5 text-destructive mt-0.5" />
                     <div>
                       <h4 className="text-destructive font-semibold">Importante</h4>
                       <p className="text-sm">
-                        Violações das políticas de uso podem resultar na suspensão imediata da conta 
+                        Violações das políticas de uso podem resultar na suspensão imediata da conta
                         sem aviso prévio ou reembolso.
                       </p>
                     </div>
@@ -212,19 +212,19 @@ export default function TermsPage({ onBack }: TermsPageProps) {
               <CardContent className="p-0 space-y-4 text-muted-foreground">
                 <h4 className="text-foreground font-semibold">5.1 Planos de Assinatura</h4>
                 <p>
-                  Oferecemos diferentes planos de assinatura com recursos e limites variados. 
+                  Oferecemos diferentes planos de assinatura com recursos e limites variados.
                   Os preços estão sujeitos a alterações com notificação prévia de 30 dias.
                 </p>
-                
+
                 <h4 className="text-foreground font-semibold">5.2 Faturamento</h4>
                 <p>
-                  As assinaturas são cobradas mensalmente ou anualmente, conforme selecionado. 
+                  As assinaturas são cobradas mensalmente ou anualmente, conforme selecionado.
                   O pagamento é processado automaticamente na data de renovação.
                 </p>
-                
+
                 <h4 className="text-foreground font-semibold">5.3 Cancelamento e Reembolsos</h4>
                 <p>
-                  Você pode cancelar sua assinatura a qualquer momento. Não oferecemos reembolsos 
+                  Você pode cancelar sua assinatura a qualquer momento. Não oferecemos reembolsos
                   para períodos já pagos, exceto conforme exigido por lei.
                 </p>
               </CardContent>
@@ -239,11 +239,11 @@ export default function TermsPage({ onBack }: TermsPageProps) {
               </CardHeader>
               <CardContent className="p-0 space-y-4 text-muted-foreground">
                 <p>
-                  Na máxima extensão permitida por lei, a Definna não será responsável por danos indiretos, 
+                  Na máxima extensão permitida por lei, a Definna não será responsável por danos indiretos,
                   incidentais, especiais, consequenciais ou punitivos, incluindo perda de lucros, dados ou uso.
                 </p>
                 <p>
-                  Nossa responsabilidade total por qualquer reivindicação relacionada aos serviços será 
+                  Nossa responsabilidade total por qualquer reivindicação relacionada aos serviços será
                   limitada ao valor pago por você nos 12 meses anteriores ao evento que deu origem à reivindicação.
                 </p>
               </CardContent>
@@ -263,9 +263,9 @@ export default function TermsPage({ onBack }: TermsPageProps) {
                 <Button variant="gradient-brand">
                   Falar com Suporte
                 </Button>
-                <Button variant="ghost">
+                {/* <Button variant="ghost">
                   Ver Políticas de Privacidade
-                </Button>
+                </Button> */}
               </div>
             </CardContent>
           </Card>
