@@ -5,9 +5,17 @@ import { Shield, Eye, Database, Lock, Users, Globe, ArrowLeft, AlertTriangle } f
 import { DotPattern } from '../components/magicui/dot-pattern';
 import { cn } from '../lib/utils';
 
-export default function PrivacyPage() {
+interface PrivacyPageProps {
+  onBack?: () => void;
+}
+
+export default function PrivacyPage({ onBack }: PrivacyPageProps) {
   const handleBack = () => {
-    window.history.back();
+    if (onBack) {
+      onBack();
+    } else {
+      window.history.back();
+    }
   };
 
   return (
@@ -412,7 +420,7 @@ export default function PrivacyPage() {
                 <Button variant="gradient-brand">
                   Contatar Privacidade
                 </Button>
-                <Button variant="ghost" onClick={() => window.location.href = '/terms'}>
+                <Button variant="ghost">
                   Ver Termos de Serviços
                 </Button>
               </div>
