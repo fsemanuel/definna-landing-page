@@ -7,8 +7,13 @@ import NumberTicker from './components/magicui/number-ticker';
 import TypingAnimation from './components/magicui/typing-animation';
 import { DotPattern } from './components/magicui/dot-pattern';
 import { cn } from './lib/utils';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
+
+type PageView = 'home' | 'terms' | 'privacy';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState<PageView>('home');
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
 
@@ -19,6 +24,21 @@ function App() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  // Handle navigation
+  const navigateTo = (page: PageView) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
+  // Render the appropriate page
+  if (currentPage === 'terms') {
+    return <TermsPage onBack={() => navigateTo('home')} />;
+  }
+
+  if (currentPage === 'privacy') {
+    return <PrivacyPage onBack={() => navigateTo('home')} />;
+  }
 
   const features = [
     {
@@ -338,7 +358,8 @@ function App() {
             <div>
               <h4 className="text-foreground font-semibold mb-4">Produto</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Recursos</a></li>
+                <li><a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Recursos</a></li>
+                <li><a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Preços</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Integrações</a></li>
               </ul>
             </div>
@@ -347,20 +368,50 @@ function App() {
               <ul className="space-y-2">
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Sobre</a></li>
                 <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Contato</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-foreground font-semibold mb-4">Suporte</h4>
+              <h4 className="text-foreground font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Tutoriais</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Ajuda</a></li>
+                <li>
+                  <button 
+                    onClick={() => navigateTo('terms')} 
+                    className="text-muted-foreground hover:text-foreground transition-colors text-left"
+                  >
+                    Termos de Serviços
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => navigateTo('privacy')} 
+                    className="text-muted-foreground hover:text-foreground transition-colors text-left"
+                  >
+                    Políticas de Privacidade
+                  </button>
+                </li>
+                <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Suporte</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-border mt-12 pt-8 text-center">
-            <p className="text-muted-foreground">
-              © 2025 Plataforma de IA. Todos os direitos reservados.
+          <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-muted-foreground mb-4 md:mb-0">
+              © 2025 Definna. Todos os direitos reservados.
             </p>
+            <div className="flex space-x-6">
+              <button 
+                onClick={() => navigateTo('terms')} 
+                className="text-sm text-muted-foreground hover:text-brand-500 transition-colors"
+              >
+                Termos
+              </button>
+              <button 
+                onClick={() => navigateTo('privacy')} 
+                className="text-sm text-muted-foreground hover:text-brand-500 transition-colors"
+              >
+                Privacidade
+              </button>
+            </div>
           </div>
         </div>
       </footer>
